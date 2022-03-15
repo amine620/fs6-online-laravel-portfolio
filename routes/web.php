@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,4 @@ Route::get('/', function () {
     return view('FrontOffice.welcome');
 });
 
-Route::get('/admin.dashboard', function () {
-    return view('BackOffice.dashboard');
-});
-
+Route::get('create_experience',[ExperienceController::class,'create_experience']);
