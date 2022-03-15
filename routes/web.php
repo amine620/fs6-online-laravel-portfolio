@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('FrontOffice.welcome');
-});
+Route::get('/',[ShowController::class,'show']);
+
+
+
 
 Route::get('create_experience',[ExperienceController::class,'create_experience']);
+Route::post('store_experience',[ExperienceController::class,'store_experience']);
