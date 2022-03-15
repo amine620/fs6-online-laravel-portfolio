@@ -22,3 +22,4 @@ Route::get('/',[ShowController::class,'show']);
 
 Route::get('create_experience',[ExperienceController::class,'create_experience']);
 Route::post('store_experience',[ExperienceController::class,'store_experience']);
+Route::delete('destroy_experience/{id}',[ExperienceController::class,'destroy_experience']);

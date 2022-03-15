@@ -28,4 +28,49 @@
         </form>
     </div>
 </div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-3">
+
+       
+        <table class="table">
+            <thead class="table-dark">
+              <tr>
+             
+                <th >title</th>
+                <th >company name</th>
+                <th >started at</th>
+                <th >to</th>
+                <th >action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @forelse ($experiences as $experience)
+                  
+              <tr>
+              
+                <td>{{$experience->title}}</td>
+                <td>{{$experience->company_name}}</td>
+                <td>{{$experience->start_date}}</td>
+                <td>{{$experience->end_date}}</td>
+                <td>
+                    <form action="destroy_experience/{{$experience->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">delete</button>
+                    </form>
+                </td>
+                
+              </tr>
+
+              @empty
+                  
+              @endforelse
+
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
 @endsection

@@ -11,7 +11,8 @@ class ExperienceController extends Controller
 
     public function create_experience()
     {
-          return view('BackOffice.create_experience');
+          $experiences=Experience::all();
+          return view('BackOffice.create_experience',['experiences'=>$experiences]);
     }
     public function store_experience(Request $req)
     {
@@ -26,5 +27,11 @@ class ExperienceController extends Controller
         return back();
 
 
+    }
+
+    public function destroy_experience($id)
+    {
+        Experience::findOrFail($id)->delete();
+        return back();
     }
 }
