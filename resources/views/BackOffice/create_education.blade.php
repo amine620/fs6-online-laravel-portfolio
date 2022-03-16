@@ -3,20 +3,28 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <h1 class="text-center text-secondary">create new experience <i class="fas fa-history"></i></h1>
-            <form action="/store_experience" method="post" class="form-group col-md-6 offset-3">
+            <h1 class="text-center text-secondary">create new education <i class="fas fa-graduation-cap"></i></h1>
+            <form action="/admin.store_education" method="post" class="form-group col-md-6 offset-3">
                 @csrf
-                <label for="start_date" class="mt-2">title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                    placeholder="title">
-                @error('title')
+                <label for="school_name" class="mt-2">school name</label>
+                <input type="text" class="form-control @error('school_name') is-invalid @enderror" name="school_name"
+                    placeholder="school_name">
+                @error('school_name')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <label for="start_date" class="mt-2">company name</label>
-                <input type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name"
-                    placeholder="company name">
-                @error('company_name')
+                <label for="degree" class="mt-2">degree</label>
+                <input type="text" class="form-control @error('degree') is-invalid @enderror" name="degree"
+                    placeholder="degree">
+                @error('degree')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+
+                <label for="matter" class="mt-2">matter</label>
+                <input type="text" class="form-control @error('matter') is-invalid @enderror" name="matter"
+                    placeholder="matter">
+                @error('matter')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
@@ -32,14 +40,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <div class="form-floating">
-                    <textarea name="description" class="form-control mt-2 @error('description') is-invalid @enderror"
-                        placeholder="describe your post here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">description</label>
-                    @error('description')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
 
                 <button class="mt-2 btn btn-primary form-control">save</button>
             </form>
@@ -55,29 +55,34 @@
                     <thead class="table-dark">
                         <tr>
 
-                            <th>title</th>
-                            <th>company name</th>
+                            <th>school name</th>
+                            <th>degree</th>
+                            <th>matter</th>
                             <th>started at</th>
                             <th>to</th>
-                            <th>action</th>
+                            <th colspan="2">action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($experiences as $experience)
+                        @forelse ($educations as $education)
                             <tr>
 
-                                <td>{{ $experience->title }}</td>
-                                <td>{{ $experience->company_name }}</td>
-                                <td>{{ $experience->start_date }}</td>
-                                <td>{{ $experience->end_date }}</td>
+                                <td>{{ $education->school_name }}</td>
+                                <td>{{ $education->degree}}</td>
+                                <td>{{ $education->matter}}</td>
+                                <td>{{ $education->start_date }}</td>
+                                <td>{{ $education->end_date }}</td>
                                 <td>
-                                    <form action="admin.destroy_experience/{{ $experience->id }}" method="post">
+                                    <form action="admin.destroy_education/{{ $education->id }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        <a href="/admin.show_experience/{{ $experience->id }}" class="btn btn-warning"><i
-                                                class="fas fa-edit"></i></a>
+    
                                     </form>
+                                </td>
+                                <td>
+                                    <a href="/admin.show_education/{{ $education->id }}" class="btn btn-warning"><i
+                                        class="fas fa-edit"></i></a>
                                 </td>
 
                             </tr>
