@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExperienceRequest;
 use App\Models\Experience;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ExperienceController extends Controller
           $experiences=Experience::all();
           return view('BackOffice.create_experience',['experiences'=>$experiences]);
     }
-    public function store_experience(Request $req)
+    public function store_experience(ExperienceRequest $req)
     {
 
         $experience=new Experience();
@@ -33,5 +34,23 @@ class ExperienceController extends Controller
     {
         Experience::findOrFail($id)->delete();
         return back();
+    }
+    
+    public function show_experience($id)
+    {
+        return view('BackOffice.show_experience',['experience'=>Experience::findOrFail($id)]);
+    }
+
+    public function update_experience(ExperienceRequest $req , $id)
+    {
+        $experience=Experience::findOrFail($id);
+        $experience->title=$req->title;
+        $experience->description=$req->description;
+        $experience->company_name=$req->company_name;
+        $experience->start_date=$req->start_date;
+        $experience->end_date=$req->end_date;
+        $experience->save();
+        return back();
+        
     }
 }
