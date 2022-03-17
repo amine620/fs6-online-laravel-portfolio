@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/admin.create_interest">
                     <span class="icon"><i class="fas fa-magic"></i></span>
                     <span class="item">interest</span>
                 </a>

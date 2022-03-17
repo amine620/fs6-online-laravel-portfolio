@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\InterestController;
 use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,10 @@ Route::post('admin.store_education',[EducationController::class,'store_education
 Route::delete('admin.destroy_education/{id}',[EducationController::class,'destroy_education']);
 Route::get('admin.show_education/{id}',[EducationController::class,"show_education"]);
 Route::put('admin.update_education/{id}',[EducationController::class,"update_education"]);
+
+//interest
+Route::get('admin.create_interest',[InterestController::class,'create_interest']);
+Route::get('admin.show_interest/{id}',[InterestController::class,'show_interest']);
+Route::post('admin.store_interest',[InterestController::class,'store_interest']);
+Route::delete('admin.destroy_interest/{id}',[InterestController::class,'destroy_interest']);
+Route::put('admin.update_interest/{id}',[InterestController::class,'update_interest']);
