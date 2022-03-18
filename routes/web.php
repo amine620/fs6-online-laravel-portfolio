@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\InterestController;
@@ -41,3 +42,11 @@ Route::get('admin.show_interest/{id}',[InterestController::class,'show_interest'
 Route::post('admin.store_interest',[InterestController::class,'store_interest']);
 Route::delete('admin.destroy_interest/{id}',[InterestController::class,'destroy_interest']);
 Route::put('admin.update_interest/{id}',[InterestController::class,'update_interest']);
+
+
+// award
+Route::get('admin.create_award',[AwardController::class,'create_award']);
+Route::post('admin.store_award',[AwardController::class,'store_award']);
+Route::delete('admin.destroy_award/{id}',[AwardController::class,'destroy_award']);
+Route::get('admin.show_award/{id}',[AwardController::class,'show_award']);
+Route::put('admin.update_award/{id}',[AwardController::class,'update_award']);

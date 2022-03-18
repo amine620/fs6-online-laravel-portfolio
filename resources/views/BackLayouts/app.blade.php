@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/admin.create_award">
                     <span class="icon"><i class="fas fa-award"></i></span>
                     <span class="item">Certification</span>
                 </a>
