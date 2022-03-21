@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('portfolio/css/dashboard.css')}}">
+
 </head>
 <body>
    
@@ -24,7 +25,7 @@
     </div>
     <div class="sidebar">
         <div class="profile">
-            <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture">
+            <img src="{{''}}" alt="profile_picture">
             <h3>Anamika Roy</h3>
             <p>Designer</p>
         </div>
@@ -84,12 +85,13 @@
     
     @yield('content')
 </div>
-   
-  <script>
-       var hamburger = document.querySelector(".hamburger");
+
+<script>
+    var hamburger = document.querySelector(".hamburger");
 	hamburger.addEventListener("click", function(){
-		document.querySelector("body").classList.toggle("active");
+        document.querySelector("body").classList.toggle("active");
 	})
-  </script>
+    </script>
+   
 </body>
 </html>

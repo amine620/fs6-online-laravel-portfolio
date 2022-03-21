@@ -6,6 +6,7 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +58,9 @@ Route::put('admin.update_award/{id}',[AwardController::class,'update_award']);
 
 Route::get('admin.create_profile',[ProfileController::class,'create_profile']);
 Route::post('admin.store_profile',[ProfileController::class,'store_profile']);
+
+
+
+// upload
+
+Route::post('/upload',[UploadController::class,'store']);
