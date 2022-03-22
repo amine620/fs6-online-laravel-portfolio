@@ -31,6 +31,10 @@
             <hr class="m-0" />
             <!-- Awards-->
            @include('../partials/_awards')
+
+           <hr class="m-0" />
+           <!-- Awards-->
+          @include('../partials/_projects')
             
         </div>
  @endsection

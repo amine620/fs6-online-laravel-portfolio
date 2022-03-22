@@ -7,6 +7,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Interest;
 use App\Models\Profile;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ShowController extends Controller
@@ -17,6 +18,7 @@ class ShowController extends Controller
         $educations=Education::all();
         $interests=Interest::all();
         $awards=Award::all();
+        $projects=Project::all();
         $profile=Profile::first();
         
         return view('FrontOffice.welcome',[
@@ -25,6 +27,7 @@ class ShowController extends Controller
             "interests"=>$interests,
             "awards"=>$awards,
             "profile"=>$profile,
+            "projects"=>$projects,
         ]);
     }
 }

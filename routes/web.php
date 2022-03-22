@@ -71,6 +71,12 @@ Route::put('admin.update_profile/{id}',[ProfileController::class,'update_profile
 
 // project
 Route::get('admin.create_project',[ProjectController::class,'create_project']);
+Route::post('admin.store_project',[ProjectController::class,'store_project']);
+Route::delete('admin.destroy_project/{id}',[ProjectController::class,'destroy_project']);
+Route::get('admin.show_project/{id}',[ProjectController::class,'show_project']);
+Route::put('admin.update_project/{id}',[ProjectController::class,'update_project']);
+
+
 
 
 });
