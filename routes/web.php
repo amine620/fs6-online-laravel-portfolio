@@ -5,8 +5,10 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UploadController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[ShowController::class,'show']);
 
+
+
+
+
+Route::group(['middleware'=>'auth'],function(){
 
 
 // experience
@@ -62,5 +69,16 @@ Route::delete('admin.destroy_profile/{id}',[ProfileController::class,'destroy_pr
 Route::get('admin.show_profile/{id}',[ProfileController::class,'show_profile']);
 Route::put('admin.update_profile/{id}',[ProfileController::class,'update_profile']);
 
+// project
+Route::get('admin.create_project',[ProjectController::class,'create_project']);
 
 
+});
+
+
+
+Route::group(['prefix'=>'admin_mrourid_amine_123'], function(){
+
+    Auth::routes();
+
+});

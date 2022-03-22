@@ -25,9 +25,8 @@
     </div>
     <div class="sidebar">
         <div class="profile">
-            <img src="{{''}}" alt="profile_picture">
-            <h3>Anamika Roy</h3>
-            <p>Designer</p>
+            <img src="{{Storage::url(Auth::user()->profile->photo)}}" alt="profile_picture">
+            <h3>{{Auth::user()->name}}</h3>
         </div>
         <ul>
             <li>
@@ -70,6 +69,12 @@
                 <a href="#">
                     <span class="icon"><i class="fas fa-brain"></i></span>
                     <span class="item">skills</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin.create_project">
+                    <span class="icon"><i class="fas fa-laptop"></i></span>
+                    <span class="item">projects</span>
                 </a>
             </li>
             <li>
