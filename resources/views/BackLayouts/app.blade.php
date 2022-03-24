@@ -28,42 +28,46 @@
         </div>
         <div class="sidebar">
             <div class="profile">
+                @if (Auth::user()->profile->photo)
                 <img src="{{ Storage::url(Auth::user()->profile->photo) }}" alt="profile_picture">
+                @else
+                <img src="https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg" alt="profile_picture">
+                @endif
                 <h3>{{ Auth::user()->name }}</h3>
             </div>
             <ul>
                 <li>
-                    <a href="/" class="active">
+                    <a href="/" >
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="item">Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_profile">
+                    <a href="/admin.create_profile" class="@if($nav=='profile') active @endif">
                         <span class="icon"><i class="fas fa-user"></i></span>
                         <span class="item">profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_award">
+                    <a href="/admin.create_award" class="@if($nav=='award') active @endif">
                         <span class="icon"><i class="fas fa-award"></i></span>
                         <span class="item">Certification</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_education">
+                    <a href="/admin.create_education" class="@if($nav=='education') active @endif">
                         <span class="icon"><i class="fas fa-graduation-cap"></i></span>
                         <span class="item">education</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_experience">
+                    <a href="/admin.create_experience" class="@if($nav=='experience') active @endif">
                         <span class="icon"><i class="fas fa-history"></i></span>
                         <span class="item">experience</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_interest">
+                    <a href="/admin.create_interest" class="@if($nav=='interest') active @endif">
                         <span class="icon"><i class="fas fa-magic"></i></span>
                         <span class="item">interest</span>
                     </a>
@@ -75,7 +79,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin.create_project">
+                    <a href="/admin.create_project" class="@if($nav=='project') active @endif">
                         <span class="icon"><i class="fas fa-laptop"></i></span>
                         <span class="item">projects</span>
                     </a>
@@ -90,7 +94,7 @@
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-                        
+
                     </form>
                 </li>
             </ul>

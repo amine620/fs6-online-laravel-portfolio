@@ -10,7 +10,7 @@ class InterestController extends Controller
     public function create_interest()
     {
     
-        return view('BackOffice.create_interest',['interests'=>Interest::all()]);
+        return view('BackOffice.create_interest',['interests'=>Interest::all(),'nav'=>'interest']);
     }
 
     public function store_interest(Request $req)

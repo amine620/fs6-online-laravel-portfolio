@@ -9,17 +9,35 @@ use App\Models\Interest;
 use App\Models\Profile;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ShowController extends Controller
 {
     public function show()
     {
-        $experiences=Experience::all();
-        $educations=Education::all();
-        $interests=Interest::all();
-        $awards=Award::all();
-        $projects=Project::all();
-        $profile=Profile::first();
+        $experiences=Cache::remember("experiences",60,function(){
+            return Experience::all();
+        });
+
+        $educations=  Cache::remember('educations',60,function(){
+             return Education::all();
+        });
+      
+        $interests=Cache::remember('interests',60,function(){
+           return  Interest::all();
+        });
+
+        $awards=Cache::remember('awards',60,function(){
+           return Award::all();
+        });
+
+        $projects=Cache::remember('projects',60,function(){
+            return Project::all();
+        });
+
+        $profile=Cache::remember('profile',60,function(){
+            return Profile::first();
+        });
         
         return view('FrontOffice.welcome',[
             "experiences"=>$experiences,

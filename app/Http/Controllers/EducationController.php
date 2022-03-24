@@ -10,7 +10,7 @@ class EducationController extends Controller
 {
     public function create_education()
     {
-        return view('BackOffice.create_education',['educations'=>Education::all()]);
+        return view('BackOffice.create_education',['educations'=>Education::all(),'nav'=>'education']);
     }
 
     public function store_education(EducationRequest $req)
