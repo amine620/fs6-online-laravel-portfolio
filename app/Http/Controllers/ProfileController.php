@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -42,6 +43,7 @@ class ProfileController extends Controller
            $path= Storage::putFile("profile",$req->photo);
            $data=$req->validated();
            $data['photo']=$path;
+           $data['user_id']=Auth::user()->id;
            Profile::create($data);
        }
 
