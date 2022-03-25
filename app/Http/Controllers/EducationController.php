@@ -33,7 +33,7 @@ class EducationController extends Controller
 
     public function show_education($id)
     {
-       return view('BackOffice.show_education',['education'=>Education::findOrFail($id)]);
+       return view('BackOffice.show_education',['education'=>Education::findOrFail($id),'nav'=>'award']);
     }
 
     public function update_education(EducationRequest $req,$id)

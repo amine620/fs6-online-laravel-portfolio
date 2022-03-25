@@ -36,7 +36,7 @@ class AwardController extends Controller
 
     public function show_award($id)
     {
-        return view('BackOffice.show_award',['award'=>Award::findOrFail($id)]);
+        return view('BackOffice.show_award',['award'=>Award::findOrFail($id),'nav'=>'award']);
     }
 
     public function update_award(Request $req,$id)

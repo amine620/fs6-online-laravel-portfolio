@@ -57,7 +57,7 @@ class ProfileController extends Controller
 
     public function show_profile($id)
     {
-        return view('BackOffice.show_profile',['profile'=>Profile::findOrFail($id)]);
+        return view('BackOffice.show_profile',['profile'=>Profile::findOrFail($id),'nav'=>'award']);
     }
 
     public function update_profile(ProfileRequest $req,$id)

@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
     public function show_project($id)
     {
-        return view('BackOffice.show_project',['project'=>Project::findOrFail($id)]);
+        return view('BackOffice.show_project',['project'=>Project::findOrFail($id),'nav'=>'award']);
     }
 
     public function update_project(ProjectUpdateRequest $req,$id)

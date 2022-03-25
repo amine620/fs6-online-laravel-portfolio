@@ -33,7 +33,7 @@ class InterestController extends Controller
     }
     public function show_interest($id)
     {
-        return view("BackOffice.show_interest",['interest'=>Interest::findOrFail($id)]);
+        return view("BackOffice.show_interest",['interest'=>Interest::findOrFail($id),'nav'=>'award']);
     }
     
     public function update_interest(Request $req , $id)

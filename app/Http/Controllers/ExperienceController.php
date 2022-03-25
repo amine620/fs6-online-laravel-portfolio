@@ -38,7 +38,7 @@ class ExperienceController extends Controller
     
     public function show_experience($id)
     {
-        return view('BackOffice.show_experience',['experience'=>Experience::findOrFail($id)]);
+        return view('BackOffice.show_experience',['experience'=>Experience::findOrFail($id),'nav'=>'award']);
     }
 
     public function update_experience(ExperienceRequest $req , $id)
