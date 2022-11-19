@@ -35,7 +35,7 @@ class ShowController extends Controller
             return Project::all();
         });
 
-        $profile=Cache::remember('profile',60,function(){
+        $profile=Cache::remember('profile',1,function(){
             return Profile::first();
         });
         

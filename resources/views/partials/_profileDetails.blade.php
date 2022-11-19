@@ -10,12 +10,19 @@
                             <a href="admin.show_profile/{{$profile->id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                         </form>
                 </li>
-                <li class="list-group-item text-center"> <span class="fw-bold"><img
-                            src="{{ Storage::url($profile->photo) }}" alt="profile_picture"
-                            class="rounded-circle w-25"></li>
-                <li class="list-group-item"> <span class="fw-bold">first name</span> {{ $profile->first_name }}
+                <li class="list-group-item text-center"> <span class="fw-bold">
+
+                      @isset($profile->photo)
+                      <img
+                        src="{{ Storage::url($profile->photo)}}" alt="profile_picture"
+                        class="rounded-circle w-25">
+                      @endisset
+                      
+                       
+                         </li>
+                <li class="list-group-item"> <span class="fw-bold">first name</span> {{ $profile?->first_name }}
                 </li>
-                <li class="list-group-item"> <span class="fw-bold">last name</span> {{ $profile->last_name }}
+                <li class="list-group-item"> <span class="fw-bold">last name</span> {{ $profile?->last_name }}
                 </li>
                 <li class="list-group-item"> <span class="fw-bold">bio</span> {{ $profile->bio }}</li>
                 <li class="list-group-item"> <span class="fw-bold">address</span> {{ $profile->address }}</li>

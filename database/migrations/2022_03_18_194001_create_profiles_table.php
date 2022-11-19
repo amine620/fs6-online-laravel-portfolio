@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('bio');
-            $table->string('address');
-            $table->string('photo');
-            $table->string('linkedin');
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('github');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('address')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('github')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

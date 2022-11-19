@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="row">
             <h1 class="text-center text-secondary">create new experience <i class="fas fa-history"></i></h1>
-            <form action="/store_experience" method="post" class="form-group col-md-6 offset-3">
+            <form action="/admin.store_experience" method="post" class="form-group col-md-6 offset-3">
                 @csrf
                 <label for="start_date" class="mt-2">title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
